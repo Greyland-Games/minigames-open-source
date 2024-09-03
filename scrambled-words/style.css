@@ -1,0 +1,65 @@
+#scrabled_game_div {
+    text-align: center;
+}
+
+#scrabled_game_div img {
+    max-width: 150px;
+    min-height: 150px;
+    object-fit: contain;
+    margin-bottom: 1em;
+}
+
+#drag_letters span,
+#drop_letters span {
+    display: inline-block;
+    background-color: var(--e-global-color-text);
+    color: var(--e-global-color-primary);
+    padding: 1em;
+    width: 51px;
+    text-align: center;
+    gap: 1em;
+}
+
+#drag_letters {
+    display: flex;
+    margin-bottom: 1em;
+    gap: 0.5em;
+    min-height: 50px;
+    background-color: #ffffff17;
+}
+
+
+#drop_letters {
+    border: solid thin var(--e-global-color-text);
+    height: 50px;
+    box-sizing: content-box;
+    display: flex;
+}
+
+#drop_letters span:not(:last-child) {
+    border-right: solid 2px var(--e-global-color-primary);
+}
+
+.draggable {
+    background-color: var(--e-global-color-text);
+    max-width: 300px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    padding: 0.5em 1em;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    color: var(--black);
+}
+
+#drop_letters .draggable {
+    border-radius: 0;
+}
+
+/* override specificity of global.css effect */
+.correct-fx span {
+    animation: greenfade 1s 1;
+}

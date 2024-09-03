@@ -1,0 +1,44 @@
+.pictionary {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.pictionary figure {
+    text-align: center;
+}
+
+.pictionary figure img {
+    max-width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 1em;
+}
+
+.pictionary figcaption {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+}
+
+.pictionary .answer_form {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.pictionary .answer_form input {
+    padding: 0.5em;
+}
+
+@media screen and (max-width: 600px) {
+
+    .pictionary,
+    .pictionary figure {
+        margin: 0;
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,10 @@
+{
+"background": "atmos-background.jpg",
+"items":[
+  {"name":"Apple", "img":"apple.png"},
+  {"name":"Banana", "img":"banana.png"},
+  {"name":"Lime", "img":"lime.png"},
+  {"name":"Bowl", "img":"bowl.png", "ok": "false"},
+  {"name":"Glass", "img":"glass.png", "ok": "false"}
+]
+} 

@@ -1,0 +1,9 @@
+{
+"tasks":[
+  {"fi":"Ulkoiluta koiraa", "en":"Walk the dog", "audiofile": "walk_dog"},
+  {"fi":"Käy kaupassa", "en":"Shop groceries", "audiofile": "go_shop"},
+  {"fi":"Tee ruokaa", "en":"Make food", "audiofile": "make_food"},
+  {"fi":"Siivoa koti", "en":"Clean the home", "audiofile": "clean_home"},
+  {"fi":"Katso Netflixiä", "en":"Watch Netflix", "audiofile": "watch_netflix"}
+]
+} 

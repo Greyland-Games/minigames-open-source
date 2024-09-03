@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --primary-main: rgb(46, 31, 94);
+    --primary-light: rgb(66, 48, 126);
+    --secondary-main: rgb(0, 125, 126);
+    --secondary-light: rgb(0, 143, 143);
+    --text-main: rgb(33, 37, 41);
+    --text-light: rgb(50, 56, 61);
+    --accent-main: rgb(27, 134, 102);
+    --black: black;
+    --white: white;
+    --border-radius: 6px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--text);
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+a,
+a:visited,
+button {
+    background-color: var(--primary-main);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border: none;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+}
+
+a:hover,
+button:hover {
+    background-color: var(--primary-light);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.iconbutton {
+    background-color: transparent;
+    color: var(--text-main);
+    padding: 1em;
+}
+
+.iconbutton:hover {
+    color: var(--text-light);
+    background-color: transparent;
+}
+
+.gamewindow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+    margin: 2em;
+    aspect-ratio: 16/9;
+}
+
+.secondary_button {
+    background-color: inherit;
+    border: solid thin var(--secondary-main);
+    color: var(--text-main);
+}
+
+.success_bar {
+    background-color: var(--secondary-main);
+    color: var(--white);
+    width: 100%;
+    padding: 1em 2em;
+}
+
+/* utility classes */
+.invisible {
+    opacity: 0;
+}
+
+/* effects */
+.horizontal-shake {
+    animation: horizontal-shaking 0.35s 0.5s;
+}
+
+.correct-fx {
+    animation: greenfade 1s 1;
+}
+
+.fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+}
+
+@keyframes horizontal-shaking {
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(10px)
+    }
+
+    50% {
+        transform: translateX(-10px)
+    }
+
+    75% {
+        transform: translateX(10px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
+
+
+@keyframes greenfade {
+    0% {
+        background-color: var(--text)
+    }
+
+    50% {
+        background-color: rgb(40, 238, 40);
+    }
+
+    100% {
+        background-color: var(--text);
+    }
+}
+
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .gamewindow {
+        aspect-ratio: unset;
+    }
+}

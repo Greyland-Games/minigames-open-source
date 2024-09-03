@@ -1,0 +1,36 @@
+.gamewindow section {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gamewindow .row {
+    display: flex;
+    align-items: center;
+}
+
+.gamewindow section input {
+    padding: 0.5em;
+    margin: 1em;
+    min-height: 40px;
+}
+
+.headset_background {
+    width: 100%;
+    max-width: 150px;
+}
+
+.iconbutton {
+    padding: 0.25em;
+}
+
+.iconbutton i {
+    font-size: 2em;
+}
+
+#continue {
+    background-color: var(--black);
+    color: var(--white);
+}

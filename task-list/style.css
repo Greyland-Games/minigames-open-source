@@ -1,0 +1,159 @@
+.draggable,
+.drop-zone {
+    display: block;
+    margin: 10px;
+    height: 50px;
+    margin: 0;
+    margin-bottom: 0.5em;
+
+}
+
+#dtscontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.draggable {
+    background-color: var(--e-global-color-text);
+    max-width: 300px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    padding: 0.5em 1em;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    color: var(--black);
+    padding-right: 0;
+}
+
+#slot0 {
+    margin-bottom: 1em;
+    transition: min-height 0.25s ease-in;
+    min-width: 260px;
+}
+
+.draggable button {
+    background-color: inherit;
+    border: none;
+    font-size: 1.5em;
+    display: flex;
+
+}
+
+.draggable:hover {
+    background-color: #cbcfe9;
+}
+
+.draggable button:hover {
+    cursor: pointer;
+    color: var(--e-global-color-accent);
+}
+
+.draggable p {
+    text-align: left;
+    width: 100%;
+}
+
+.draggable--active {
+    opacity: 0.5;
+}
+
+.drop-zone {
+    max-width: 300px;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    border: 2px solid var(--e-global-color-text);
+    border-radius: var(--border-radius);
+    margin-left: 2.5em;
+
+}
+
+.dropslots li {
+    position: relative;
+
+}
+
+.dropslots li span {
+    color: var(--e-global-color-text);
+    position: absolute;
+    left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.drop-zone .draggable {
+    margin: 0;
+    border: 2px solid var(--e-global-color-text);
+
+}
+
+.drop-zone--active {
+    background-color: cadetblue;
+}
+
+.errormsg {
+    background-color: white;
+    color: crimson;
+    padding: 0.5em;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+    #dtscontainer {
+        grid-template-columns: 1fr;
+        margin-top: 1em;
+    }
+
+    .draggable {
+        padding: 0.25em 1em;
+        height: unset;
+    }
+
+    .drop-zone {
+        padding: 0;
+        height: unset;
+    }
+
+    .draggable p {
+        margin: 0;
+    }
+
+    .dropslots li span {
+        width: 20px;
+        height: 20px;
+        padding: 0.3em;
+        background-color: var(--e-global-color-text);
+        color: var(--e-global-color-primary);
+        border-radius: 50%;
+        border-top-left-radius: 0;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        z-index: 999;
+    }
+
+    .drop-zone {
+        margin-left: 0;
+        height: 40px;
+    }
+
+    .dropslots .draggable {
+        padding: 0.25em 1.5em;
+        border: solid 2px var(--e-global-color-text);
+        transform: translate(0px, -1px);
+    }
+}

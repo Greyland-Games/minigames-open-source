@@ -1,0 +1,9 @@
+{
+    "words":[
+        { "word":"apple", "audio":"apple"},
+        { "word":"banana", "audio":"banana"},
+        { "word":"lime", "audio":"lime"},
+        { "word":"bowl", "audio":"bowl"},
+        { "word":"glass", "audio":"glass"}
+    ]
+}
