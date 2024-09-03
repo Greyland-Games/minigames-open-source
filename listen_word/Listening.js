@@ -1,6 +1,5 @@
 class ListeningGame {
-    constructor(lang, data) {
-        this.lang = lang;
+    constructor(data) {
         this.words = data.words
         this.currentIndex = 0
     }
@@ -9,7 +8,7 @@ class ListeningGame {
         const listening_game = document.getElementById("listening_game")
         let html = ""
         const icon = `<i class="material-symbols-outlined">volume_up</i>`
-        var audiosrc = `audio/${this.lang}/${this.words[this.currentIndex].audio}.mp3`
+        var audiosrc = `audio/${this.words[this.currentIndex].audio}`
         html += `<audio id="${audiosrc}" src="${audiosrc}"></audio>`
         html += `<button onClick = "playAudio('${audiosrc}')" class="iconbutton" id="playAudioButton"> ${icon}</button >`
         listening_game.innerHTML = html

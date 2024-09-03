@@ -1,0 +1,10 @@
+{
+  "background": "atmos-home.jpg",
+  "words":[
+        { "word":"apple", "audio":"apple.mp3"},
+        { "word":"banana", "audio":"banana.mp3"},
+        { "word":"lime", "audio":"lime.mp3"},
+        { "word":"bowl", "audio":"bowl.mp3"},
+        { "word":"glass", "audio":"glass.mp3"}
+    ]
+}

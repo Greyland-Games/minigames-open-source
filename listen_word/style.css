@@ -24,6 +24,7 @@
 
 .iconbutton {
     padding: 0.25em;
+    color: var(--white);
 }
 
 .iconbutton i {
