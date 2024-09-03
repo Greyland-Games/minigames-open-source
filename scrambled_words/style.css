@@ -12,9 +12,9 @@
 #drag_letters span,
 #drop_letters span {
     display: inline-block;
-    background-color: var(--e-global-color-text);
-    color: var(--e-global-color-primary);
-    padding: 1em;
+    background-color: var(--white);
+    color: var(--primary-main);
+    padding: 0.3em;
     width: 51px;
     text-align: center;
     gap: 1em;
@@ -25,23 +25,44 @@
     margin-bottom: 1em;
     gap: 0.5em;
     min-height: 50px;
-    background-color: #ffffff17;
+    background-color: transparent;
 }
 
 
 #drop_letters {
-    border: solid thin var(--e-global-color-text);
+    border: solid thin var(--text-main);
+    background-color: var(--white);
     height: 50px;
     box-sizing: content-box;
     display: flex;
+    width: 100%;
+    border-radius: var(--border-radius);
 }
 
 #drop_letters span:not(:last-child) {
-    border-right: solid 2px var(--e-global-color-primary);
+    border-right: solid 2px var(--primary-main);
+}
+
+#drop_letters span:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.row {
+    display: flex;
+    gap: 1em;
+    position: relative;
+}
+
+.row button {
+    position: absolute;
+    height: 100%;
+    right: -5em;
+    border-radius: var(--border-radius);
 }
 
 .draggable {
-    background-color: var(--e-global-color-text);
+    background-color: var(--white);
     max-width: 300px;
     width: 100%;
     height: 50px;
@@ -53,7 +74,9 @@
     align-items: center;
     cursor: move;
     color: var(--black);
+    font-size: 1.5em;
 }
+
 
 #drop_letters .draggable {
     border-radius: 0;

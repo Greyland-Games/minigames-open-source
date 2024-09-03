@@ -9,39 +9,36 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <link rel="stylesheet" href="../common/global.css">
-    <link rel="stylesheet" href="../common/organisms/LangMenu/langmenu.css">
-    <link rel="stylesheet" href="../common/organisms/CompletionBar/CompletionBar.css">
     <link rel="stylesheet" href="../common/dragula/dragula.css">
     <link rel="stylesheet" href="style.css">
-    <script src="../common/organisms/LangMenu/LangMenu.js"></script>
-    <script src="../common/organisms/CompletionBar/CompletionBar.js"></script>
     <script src="../common/scripts/readjson.js"></script>
     <script src="scrabled.js"></script>
     <script src="../common/dragula/dragula.min.js"></script>
 </head>
 
 <body>
-    <a href="../" style="position: absolute; right: 1em; width: 50px; height: 50px;"><img src="./../common/organisms/LangMenu/close_24dp.svg" alt=""></a>
+    <a href="../" style="position: absolute; right: 1em; width: 50px; height: 50px;"><span class="material-symbols-outlined">
+            close
+        </span></a>
 
     <div class="gamewindow">
         <!-- Render game inside gamewindow elment -->
         <div id="langsettingsbar"></div>
         <div id="scrabled_game_div"></div>
-        <div id="continue" class=""></div>
+        <div id="continue" class="invisible"></div>
     </div>
     <script>
-        const langs = ["en", "fi", "es", "ua"]
-        const lang = LangMenu()
 
-        function setup(lang = "en") {
+        function setup() {
 
-            readjson("WordsData.json").catch((error) => {
+            readjson("scrambled_words_data.json").catch((error) => {
                 return Promise.reject(error);
             }).then(
                 (data) => {
+                    document.getElementsByTagName("body")[0].style.backgroundImage = `url("img/${data.background}")`
 
                     const callback = () => scrambledGame.checkWord()
-                    scrambledGame = new ScrambledWords(lang, data, callback)
+                    scrambledGame = new ScrambledWords(data, callback)
                     scrambledGame.render()
                     let slots = [document.getElementById("drag_letters"), document.getElementById("drop_letters")]
                     scrambledGame.setSlots(slots)
@@ -49,11 +46,10 @@
                 })
 
 
-            document.getElementById("continue").innerHTML = CompletionBar()
-            document.getElementById("continue").classList.add('invisible')
+            document.getElementById("continue").innerHTML = 'You passed the minigame!'
         }
 
-        setup(lang)
+        setup()
 
         function success() {
             document.getElementById("continue").classList.remove('invisible')

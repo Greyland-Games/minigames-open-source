@@ -1,0 +1,5 @@
+{   
+    "background": "atmos-background.jpg",
+    "words": ["apple","banana","lime","bowl","glass"],
+    "images": ["apple.png","banana.png","lime.png","bowl.png","glass.png"]
+}

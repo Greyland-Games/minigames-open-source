@@ -1,6 +1,5 @@
 class ScrambledWords {
-    constructor(lang, data, callback) {
-        this.lang = lang;
+    constructor(data, callback) {
         this.words = data.words
         this.images = data.images
         this.currentIndex = 0
@@ -40,23 +39,28 @@ class ScrambledWords {
         });
     }
     render() {
-        let html = `<img src="img/${this.images[this.currentIndex]}.png" alt="Hint image">`
+        let html = `<img src="img/${this.images[this.currentIndex]}" alt="Hint image">`
         html += '<div id="drag_letters">'
         let arr = this.words[this.currentIndex].split("")
         this.shuffleArray(arr)
-        arr.forEach((element, index) => {
+        arr.forEach(element => {
             html += `<span class="draggable">${element}</span>`
 
         });
 
-        html += '</div><div id="drop_letters"></div>'
+        html += `</div><div class="row">
+        <div id="drop_letters"></div>
+        <button id="drop_letters_button" class="invisible" onclick="scrambledGame.next()">
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button></div>`
 
         const scrabled_game_div = document.getElementById("scrabled_game_div")
         scrabled_game_div.innerHTML = html
-        scrabled_game_div.style = `width:${this.words[this.currentIndex].length * 51}px`
+        scrabled_game_div.style = `width:${this.words[this.currentIndex].length * 52}px`
         this.addClickControls()
     }
     next() {
+        document.getElementById("drop_letters_button").classList.add("invisible")
         this.currentIndex++
         if (this.currentIndex >= this.words.length) {
             success()
@@ -67,12 +71,14 @@ class ScrambledWords {
         initDragula(this.slots, this.callback)
     }
     setCorrect() {
+        const drop_letters_button = document.getElementById("drop_letters_button")
+        drop_letters_button.classList.remove("invisible")
+        drop_letters_button.focus()
         const el = document.getElementById("drop_letters")
         el.classList.add('correct-fx')
 
         setTimeout(() => {
             el.classList.remove('correct-fx')
-            this.next()
         }, 1000)
 
     }
