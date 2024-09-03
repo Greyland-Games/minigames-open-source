@@ -1,0 +1,17 @@
+{   
+    "background": "atmos-background.jpg",
+    "sentences":[
+        {"full":"___ is red and delicious.", "word":"Apple", "audio":"sentence1.mp3"},
+        {"full":"Yellow ___ is curved.", "word":"banana", "audio":"sentence2.mp3"},
+        {"full":"Sour fruit such as ___ is suitable for baking and beverages.", "word":"lime", "audio":"sentence3.mp3"},
+        {"full":"For mixing stuff together a ___ is good option.", "word":"bowl", "audio":"sentence4.mp3"},
+        {"full":"On hot Summer day a ___ of water is refreshing.", "word":"glass", "audio":"sentence5.mp3"}
+    ],
+    "images":[
+        "../pictionary_game/img/apple.png",
+        "../pictionary_game/img/banana.png",
+        "../pictionary_game/img/lime.png",
+        "../pictionary_game/img/bowl.png",
+        "../pictionary_game/img/glass.png"
+    ]
+}

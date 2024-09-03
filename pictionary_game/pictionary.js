@@ -1,6 +1,5 @@
 class Pictionary {
-    constructor(lang, data) {
-        this.lang = lang;
+    constructor(data) {
         this.sentences = data.sentences
         this.images = data.images
         this.currentIndex = 0
@@ -36,7 +35,7 @@ class Pictionary {
             <figcaption>${sentence.replaceAll("___", this.sentences[this.currentIndex].word)} `
 
         if (audiosrc) {
-            var audiosrc = `audio/${this.lang}/${audiosrc}.mp3`
+            var audiosrc = `audio/${audiosrc}`
             html += `<audio id="${audiosrc}" src="${audiosrc}"></audio>`
             html += `<button onClick = "playAudio('${audiosrc}')" class="iconbutton" id="playaudiobutton"> ${icon}</button >`
         }
