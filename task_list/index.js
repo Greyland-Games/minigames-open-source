@@ -1,30 +1,26 @@
 let listElemHeight
 const dropAction = (el) => {
     el.className += ' ex-moved';
-    let res = isCorrect(el)
-    if (res == 0) {
+    let response = isCorrect(el)
 
+    if (response == 0) {
         el.classList.add('horizontal-shake')
 
         setTimeout(() => {
             el.classList.remove('horizontal-shake')
             document.getElementById("slot0").appendChild(el);
         }, 1000)
-
-
     }
-    if (res > 0) {
-
+    else if (response > 0) {
         const count = document.querySelectorAll('#slot0 > div[data-class]').length;
-        document.getElementById("slot0").setAttribute("style", `min-height: ${listElemHeight * count}px;`)
+        document.getElementById("slot0").setAttribute("style", `height: ${10 + listElemHeight * count}px!important; `)
 
         if (count == 0) {
             success()
         }
-
-
     }
 }
+
 function initDragula(slots) {
     dragula(slots)
         .on('drag', function (el) {
@@ -53,7 +49,6 @@ function shuffleElemsInPlace(query) {
 }
 
 function isCorrect(el) {
-
     if (!el.parentNode) {
         return 0
     }
@@ -65,14 +60,17 @@ function isCorrect(el) {
     if (dragid != dropid) return 0
     return parseInt(dragid)
 }
+
 function success() {
     document.getElementById("continue").classList.remove('invisible');
 }
+
 function setParent(elem, parent_idx) {
     const parent = document.getElementById(`slot${parent_idx}`)
     const child = elem
-    parent.appendChild(child);
+    parent.appendChild(child); 1
 }
+
 function initKeyboardControls(slot_count) {
     const li_elems = document.querySelectorAll("#slot0 .draggable")
     document.body.addEventListener("keypress", function (event) {
@@ -95,25 +93,5 @@ function initKeyboardControls(slot_count) {
             });
             element.classList.add('active-item');
         });
-
     });
-
-}
-function setup(lang = "en") {
-    const container = document.getElementById("dtscontainer");
-    readjson("TaskListData.json").catch((error) => {
-        return Promise.reject(error);
-    }).then(
-        (data) => {
-            container.innerHTML = TaskList(data, lang);
-            container.innerHTML += DropList(data.tasks.length);
-            let slots = []
-            for (let index = 0; index < data.tasks.length + 1; index++) {
-                slots.push(document.getElementById(`slot${index}`))
-            }
-            initDragula(slots);
-            shuffleElemsInPlace('#slot0')
-            initKeyboardControls(slots.length - 1)
-            listElemHeight = document.getElementById('slot1').getBoundingClientRect().height
-        })
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task list</title>
+    <link rel="shortcut icon" href="../common/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../common/global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../common/dragula/dragula.css">
+
+    <script src="../common/dragula/dragula.min.js"></script>
+    <script src="components/TaskList.js"></script>
+    <script src="components/ListItem.js"></script>
+    <script src="components/IconButton.js"></script>
+    <script src="components/DropList.js"></script>
+    <script src="../common/scripts/readjson.js"></script>
+</head>
+
+<body>
+    <a href="../" style="position: absolute; right: 1em; width: 50px; height: 50px;"><span class="material-symbols-outlined">
+            close
+        </span></a>
+    <div class="gamewindow">
+        <div id="dtscontainer">
+            <!-- generated task list -->
+            <!-- generated drop slots -->
+        </div>
+        <div id="continue" class="invisible"></div>
+    </div>
+
+    <script src="index.js"></script>
+
+    <script>
+        function play(callback) {
+            document.getElementById(callback).play();
+        }
+        function setup() {
+            const container = document.getElementById("dtscontainer");
+            readjson("task_list_data.json").catch((error) => {
+                return Promise.reject(error);
+            }).then(
+                (data) => {
+                    document.getElementsByTagName("body")[0].style.backgroundImage = `url("img/${data.background}")`
+                    container.innerHTML = TaskList(data);
+                    container.innerHTML += DropList(data.tasks.length);
+                    let slots = []
+                    for (let index = 0; index < data.tasks.length + 1; index++) {
+                        slots.push(document.getElementById(`slot${index}`))
+                    }
+                    initDragula(slots);
+                    shuffleElemsInPlace('#slot0')
+                    initKeyboardControls(slots.length - 1)
+                    listElemHeight = document.getElementById('slot1').getBoundingClientRect().height
+                    document.getElementById("slot0").setAttribute("style", `height: ${10 + listElemHeight * slots.length}px!important; `)
+
+                })
+        }
+        setup()
+        document.getElementById("continue").innerHTML = 'You passed the minigame!'
+
+
+
+    </script>
+</body>
+
+</html>

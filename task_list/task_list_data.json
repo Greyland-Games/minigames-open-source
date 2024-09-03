@@ -1,0 +1,10 @@
+{
+"background": "atmos-home.jpg",
+"tasks":[
+  {"note":"Walk the dog", "audiofile": "walk_dog.mp3"},
+  {"note":"Shop groceries", "audiofile": "go_shop.mp3"},
+  {"note":"Make food", "audiofile": "make_food.mp3"},
+  {"note":"Clean the home", "audiofile": "clean_home.mp3"},
+  {"note":"Watch Netflix", "audiofile": "watch_netflix.mp3"}
+]
+} 

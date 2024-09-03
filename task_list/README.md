@@ -1,8 +1,6 @@
 # Drag and drop list minigame
 - Render tasks into list ordering puzzle
-- Read tasks from file: [TaskListData.json](TaskListData.json)
-- Link audio file to each task: */audio/[locale]/[audiofile].mp3*
-- Use URL Params to handle languages: *?lang=en*
+- Use generated tasks and audio
 
 ## Libraries
  - Dragula [bevacqua.github.io/dragula/](https://bevacqua.github.io/dragula/)
